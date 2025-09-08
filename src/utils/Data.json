@@ -1,5 +1,5 @@
 [{"categoryName":"CSMP Executive Dashboard",
-"widgtes":["Cloud Accounts","Cloud Account Risk Assessment"]},
+"widgtes":["Cloud Accounts","Cloud Account Risk Assessment","Cloud Visible"]},
 {"categoryName":"CWPP Dashboard",
 "widgtes":["Top 5 Namespace Specific Alerts","Workload Alerts"]},
 {"categoryName":"Registry Scan",

@@ -1,6 +1,6 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  margin: 10px;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +10,28 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#dashboard{
+  background-color: rgb(238, 242, 243);
+    padding: 10px;
+}
+#dashboardHeading{
+  display: flex;
+  flex-direction: row;
+  
+  }
+  #dashboardIcons{
+    width: 75%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+  #dashboardIcons button{
+    background-color: white;
+    height:30px;
+    border-radius: 5px;
+
+  }
+#dashboardLayout{
+  padding: 10px;
 }
