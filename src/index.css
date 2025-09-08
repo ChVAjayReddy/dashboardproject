@@ -35,3 +35,15 @@ code {
 #dashboardLayout{
   padding: 10px;
 }
+.removebtn{
+
+
+}
+.widget {
+          height: auto;
+                        
+               border-radius: 20px;
+                        padding: 10px;
+                        background-color: white;
+                      
+}

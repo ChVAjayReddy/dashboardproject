@@ -1,6 +1,72 @@
-[{"categoryName":"CSMP Executive Dashboard",
-"widgtes":["Cloud Accounts","Cloud Account Risk Assessment","Cloud Visible"]},
-{"categoryName":"CWPP Dashboard",
-"widgtes":["Top 5 Namespace Specific Alerts","Workload Alerts"]},
-{"categoryName":"Registry Scan",
-"widgtes":["Image Risk Assessment","Image Security Issues"]}]
+[
+  {
+    "categoryName": "CSMP Executive Dashboard",
+    "widgets": [
+      {
+        "widgetName": "Cloud Accounts",
+        "widgetText": "Related to cloud accounts"
+      },
+      {
+        "widgetName": "Cloud Account Risk Assessment",
+        "widgetText": "Related to risk assessment"
+      },
+      {
+        "widgetName": "Cloud Visibility",
+        "widgetText": "Related to visibility"
+      }
+    ]
+  },
+  {
+    "categoryName": "Security Insights",
+    "widgets": [
+      {
+        "widgetName": "Threat Detection",
+        "widgetText": "Shows active threats"
+      },
+      {
+        "widgetName": "Incident Reports",
+        "widgetText": "Summarizes incidents"
+      },
+      {
+        "widgetName": "Compliance Status",
+        "widgetText": "Highlights compliance status"
+      }
+    ]
+  },
+  {
+    "categoryName": "Analytics",
+    "widgets": [
+      {
+        "widgetName": "User Growth",
+        "widgetText": "Tracks number of users"
+      },
+      {
+        "widgetName": "Traffic Sources",
+        "widgetText": "Shows where visitors come from"
+      },
+      {
+        "widgetName": "Revenue Trends",
+        "widgetText": "Shows revenue growth"
+      }
+    ]
+  },
+  {
+    "categoryName": "Monitoring",
+    "widgets": [
+      {
+        "widgetName": "Server Uptime",
+        "widgetText": "Tracks uptime and downtime"
+      },
+      {
+        "widgetName": "Error Logs",
+        "widgetText": "Shows system errors"
+      },
+      {
+        "widgetName": "Performance Metrics",
+        "widgetText": "Tracks response times and load"
+      }
+
+    ]
+  }
+  
+]
