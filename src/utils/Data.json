@@ -4,15 +4,16 @@
     "widgets": [
       {
         "widgetName": "Cloud Accounts",
-        "widgetText": "Related to cloud accounts"
+        "widgetText": "Related to cloud accounts",
+        "isDisplay":true
       },
       {
         "widgetName": "Cloud Account Risk Assessment",
-        "widgetText": "Related to risk assessment"
+        "widgetText": "Related to risk assessment","isDisplay":true
       },
       {
         "widgetName": "Cloud Visibility",
-        "widgetText": "Related to visibility"
+        "widgetText": "Related to visibility","isDisplay":true
       }
     ]
   },
@@ -21,15 +22,15 @@
     "widgets": [
       {
         "widgetName": "Threat Detection",
-        "widgetText": "Shows active threats"
+        "widgetText": "Shows active threats","isDisplay":true
       },
       {
         "widgetName": "Incident Reports",
-        "widgetText": "Summarizes incidents"
+        "widgetText": "Summarizes incidents","isDisplay":true
       },
       {
         "widgetName": "Compliance Status",
-        "widgetText": "Highlights compliance status"
+        "widgetText": "Highlights compliance status","isDisplay":true
       }
     ]
   },
@@ -38,15 +39,15 @@
     "widgets": [
       {
         "widgetName": "User Growth",
-        "widgetText": "Tracks number of users"
+        "widgetText": "Tracks number of users","isDisplay":true
       },
       {
         "widgetName": "Traffic Sources",
-        "widgetText": "Shows where visitors come from"
+        "widgetText": "Shows where visitors come from","isDisplay":true
       },
       {
         "widgetName": "Revenue Trends",
-        "widgetText": "Shows revenue growth"
+        "widgetText": "Shows revenue growth","isDisplay":true
       }
     ]
   },
@@ -55,15 +56,15 @@
     "widgets": [
       {
         "widgetName": "Server Uptime",
-        "widgetText": "Tracks uptime and downtime"
+        "widgetText": "Tracks uptime and downtime","isDisplay":true
       },
       {
         "widgetName": "Error Logs",
-        "widgetText": "Shows system errors"
+        "widgetText": "Shows system errors","isDisplay":true
       },
       {
         "widgetName": "Performance Metrics",
-        "widgetText": "Tracks response times and load"
+        "widgetText": "Tracks response times and load","isDisplay":true
       }
 
     ]

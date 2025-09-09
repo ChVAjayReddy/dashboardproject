@@ -6,6 +6,8 @@ import { SlRefresh } from "react-icons/sl";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import Modal from "react-modal";
+import Sidebar from "./Sidebar";
+import DashboardLayout from "./DashboardLayout";
 Modal.setAppElement("#root");
 const Body = () => {
   const [form, setform] = useState({
@@ -17,6 +19,7 @@ const Body = () => {
   const [display, setdisplay] = useState(data);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [originalData, setoriginalData] = useState(data);
+   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   function addWidget() {
     let tempCategory = originalData.filter(
@@ -37,6 +40,12 @@ const Body = () => {
       )
     );
     setdisplay(originalData);
+    setform({
+      ...form,
+      categoryName: "Select Category",
+      widgetName: "",
+      widgetText: "",
+    });
   }
   function deleteWidget(categoryName, index) {
     let tempCategory = originalData.filter(
@@ -63,7 +72,7 @@ const Body = () => {
           return category;
         }
 
-        let matchedWidgets =category.widgets.filter((widget) =>
+        let matchedWidgets = category.widgets.filter((widget) =>
           widget.widgetName.toLowerCase().includes(searchValue)
         );
         if (matchedWidgets.length > 0) {
@@ -125,6 +134,8 @@ const Body = () => {
             >
               Add Widget +
             </button>
+                <button onClick={() => setIsSidebarOpen(true)}>Manage Widgets</button>
+
             <button>
               <SlRefresh />
             </button>
@@ -135,52 +146,32 @@ const Body = () => {
         </div>
         <div id="dashboardLayout">
           {display.map((category, index) => (
-            <div key={index}>
-              <div>
-                <p>
-                  <strong>{category.categoryName}</strong>
-                </p>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "33%  33% 33%",
-                    gap: 12,
-                  }}
-                >
-                  {category.widgets.map((widget, index) => (
-                    <div className="widget" key={index}>
-                      <button
-                        className="removebtn"
-                        onClick={() =>
-                          deleteWidget(category.categoryName, index)
-                        }
-                      >
-                        <RxCross2 color="red" />
-                      </button>{" "}
-                      <p
-                        style={{
-                          margin: "0px",
-                          fontSize: "14px",
-                          maxHeight: "auto",
-                        }}
-                      >
-                        {widget.widgetName}
-                      </p>
-                      <p> {widget.widgetText}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <DashboardLayout
+              category={category}
+              key={index}
+              deleteWidget={deleteWidget}
+              form={form}
+              setform={setform}
+              setModalIsOpen={setModalIsOpen}
+            />
           ))}
         </div>
       </div>
+      <Sidebar 
+        isOpen={isSidebarOpen} 
+        onClose={() => setIsSidebarOpen(false)} 
+        originalData={originalData}
+        setdisplay={setdisplay}
+      />
       <Modal isOpen={modalIsOpen}>
         <div>
           {" "}
           <RxCross2
             id="close-btn"
-            onClick={() => setModalIsOpen(false)}
+            onClick={() => {
+              setModalIsOpen(false);
+              setform({ ...form, categoryName: "Select Category" });
+            }}
             style={{
               width: "20px",
               height: "20px",
