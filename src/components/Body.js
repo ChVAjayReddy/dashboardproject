@@ -14,7 +14,7 @@ const Body = () => {
     categoryName: "",
     widgetName: "",
     widgetText: "",
-    isChecked:true
+    isChecked: true,
   });
   const [searchInput, setsearchInput] = useState("");
   const [display, setdisplay] = useState(data);
@@ -34,7 +34,7 @@ const Body = () => {
           {
             widgetName: form.widgetName,
             widgetText: form.widgetText,
-            isChecked:true
+            isChecked: true,
           },
         ],
       };
@@ -46,10 +46,9 @@ const Body = () => {
       let tempWidget = {};
       tempWidget.widgetName = form.widgetName;
       tempWidget.widgetText = form.widgetText;
-      tempWidget.isChecked=true;
+      tempWidget.isChecked = true;
       tempCategory[0].widgets.push(tempWidget);
       let updatedCategory = tempCategory[0];
-
       setoriginalData((prevoriginalData) =>
         prevoriginalData.map((category) =>
           category.categoryName === form.categoryName
@@ -58,7 +57,6 @@ const Body = () => {
         )
       );
     }
-
     setdisplay(originalData);
     setform({
       ...form,
@@ -71,7 +69,6 @@ const Body = () => {
     let tempCategory = originalData.filter(
       (category) => category.categoryName === categoryName
     );
-
     tempCategory[0].widgets.splice(index, 1);
     let updatedCategory = tempCategory[0];
     setoriginalData((prevoriginalData) =>
@@ -91,7 +88,6 @@ const Body = () => {
         if (category.categoryName.toLowerCase().includes(searchValue)) {
           return category;
         }
-
         let matchedWidgets = category.widgets.filter((widget) =>
           widget.widgetName.toLowerCase().includes(searchValue)
         );
@@ -165,7 +161,6 @@ const Body = () => {
             >
               Add Category +
             </button>
-
             <button>
               <SlRefresh />
             </button>
@@ -201,7 +196,11 @@ const Body = () => {
             onClick={() => {
               setModalIsOpen(false);
               setaddCategory(false);
-                          }}
+              setform({
+                    ...form,
+                    categoryName:"",
+                  });
+            }}
             style={{
               width: "20px",
               height: "20px",
@@ -251,7 +250,6 @@ const Body = () => {
               </select>
             </div>
           )}
-
           <label htmlFor="formWidget">Widget Name :</label>
           <input
             type="text"
@@ -266,15 +264,13 @@ const Body = () => {
             value={form.widgetText}
             onChange={(e) => setform({ ...form, widgetText: e.target.value })}
           ></input>
-
           <button
             disabled={!formIsValid}
             onClick={() => {
               addWidget();
               setModalIsOpen(false);
               setaddCategory(false);
-              
-                          }}
+            }}
           >
             Add Widget
           </button>
