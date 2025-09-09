@@ -43,9 +43,9 @@ code {
 }
 .sidebar {
   position: fixed;
-  right: -800px;  
+  right: -70%;  
   top: 0;
-  width: 800px;
+  width: 70%;
   height: 100%;
   background: #fff;
   transition: right 0.3s ease-in-out;
