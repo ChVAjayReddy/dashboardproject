@@ -17,8 +17,9 @@ const DashboardLayout = (props) => {
               gap: 12,
             }}
           >
+         
             {category.widgets.map((widget, index) => (
-              <div className="widget" key={index}>
+              widget.isChecked===true ? <div className="widget" key={index}>
                 <button
                   className="removebtn"
                   onClick={() => deleteWidget(category.categoryName, index)}
@@ -39,7 +40,8 @@ const DashboardLayout = (props) => {
                     ? "No Data Available"
                     : widget.widgetText}
                 </p>
-              </div>
+              </div>:null
+              
             ))}
             <div
               id="shimmer"

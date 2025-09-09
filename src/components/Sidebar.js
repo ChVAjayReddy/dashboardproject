@@ -1,36 +1,25 @@
 import { useState } from "react";
-function Sidebar({ isOpen, onClose, originalData,setdisplay }) {
+function Sidebar({ isOpen, onClose, originalData, setdisplay }) {
   const [tab, settab] = useState(0);
-  const[selectedWidgets,setselectedWidgets]=useState([])
-   function handleChange(e){
-    if(!selectedWidgets.includes(e)){
-     setselectedWidgets(prevselectedWidgets => [...prevselectedWidgets, e]);   }
-     else{
-        let index=selectedWidgets.indexOf(e);
-        let copy=selectedWidgets;
-        copy.splice(index,1);
-        setselectedWidgets(copy)
-
-     }
-  console.log(selectedWidgets)
-  }
-  function tabChange(index) {
+  const [checkedWidgets, setcheckedWidgets] = useState(originalData);
+    function tabChange(index) {
     settab(index);
   }
-  function updaedWidgtes(){
-    const newWidgtes=originalData.map((category)=>
-    {let matchedWidgets = category.widgets.filter((widget) =>
-          selectedWidgets.includes(widget.widgetName)
-        );
-        console.log(matchedWidgets)
-        if(matchedWidgets.length>0){
-            return { ...category, widgets: matchedWidgets };
-        }
-         return null;
-    }  )   
-    .filter(Boolean);  
-     setdisplay(newWidgtes);   
+  function handleChange(widgetName) {
+  let temp = checkedWidgets.map((category) => {
+    let tempwidget = category.widgets.map((widget) =>
+      widget.widgetName === widgetName
+        ? { ...widget, isChecked: !widget.isChecked }
+        : widget
+    );
+    return { ...category, widgets: tempwidget };
+  });
+  setcheckedWidgets(temp);
+}
 
+  function updaedWidgtes(){
+   setdisplay(checkedWidgets)
+   
   }
   return (
     <div className={`sidebar ${isOpen ? "open" : ""}`}>
@@ -54,12 +43,17 @@ function Sidebar({ isOpen, onClose, originalData,setdisplay }) {
           </div>
         ))}
         <div>
-          {originalData.map((category, index) => (
+          {checkedWidgets.map((category, index) => (
             <div key={index}>
               {tab === index &&
                 category.widgets.map((widget, index) => (
                   <div key={index}>
-                    <input type="checkbox"  onChange={()=>handleChange(widget.widgetName)} id={widget.widgetName}></input>
+                    <input
+                      type="checkbox"
+                      checked={widget.isChecked}
+                      onClick={() => handleChange(widget.widgetName)}
+                      id={widget.widgetName}
+                    ></input>
                     <p
                       style={{
                         paddingTop: "20px",
@@ -75,7 +69,13 @@ function Sidebar({ isOpen, onClose, originalData,setdisplay }) {
           ))}
         </div>
       </div>
-      <button onClick={()=>updaedWidgtes()}>Submit</button>
+      <button
+        onClick={() => {updaedWidgtes();
+          onClose();
+        }}
+      >
+        Submit
+      </button>
     </div>
   );
 }

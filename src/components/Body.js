@@ -14,6 +14,7 @@ const Body = () => {
     categoryName: "",
     widgetName: "",
     widgetText: "",
+    isChecked:true
   });
   const [searchInput, setsearchInput] = useState("");
   const [display, setdisplay] = useState(data);
@@ -21,7 +22,7 @@ const Body = () => {
   const [originalData, setoriginalData] = useState(data);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [addCategory, setaddCategory] = useState(false);
-  console.log(data);
+
   function addWidget() {
     let tempCategory = originalData.filter(
       (category) => category.categoryName === form.categoryName
@@ -33,6 +34,7 @@ const Body = () => {
           {
             widgetName: form.widgetName,
             widgetText: form.widgetText,
+            isChecked:true
           },
         ],
       };
@@ -44,6 +46,7 @@ const Body = () => {
       let tempWidget = {};
       tempWidget.widgetName = form.widgetName;
       tempWidget.widgetText = form.widgetText;
+      tempWidget.isChecked=true;
       tempCategory[0].widgets.push(tempWidget);
       let updatedCategory = tempCategory[0];
 
@@ -197,8 +200,8 @@ const Body = () => {
             id="close-btn"
             onClick={() => {
               setModalIsOpen(false);
-              setform({ ...form, categoryName: "Select Category" });
-            }}
+              setaddCategory(false);
+                          }}
             style={{
               width: "20px",
               height: "20px",
@@ -269,7 +272,9 @@ const Body = () => {
             onClick={() => {
               addWidget();
               setModalIsOpen(false);
-            }}
+              setaddCategory(false);
+              
+                          }}
           >
             Add Widget
           </button>

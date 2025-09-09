@@ -5,15 +5,15 @@
       {
         "widgetName": "Cloud Accounts",
         "widgetText": "Related to cloud accounts",
-        "isDisplay":true
+        "isChecked":true
       },
       {
         "widgetName": "Cloud Account Risk Assessment",
-        "widgetText": "Related to risk assessment","isDisplay":true
+        "widgetText": "Related to risk assessment", "isChecked":true
       },
       {
         "widgetName": "Cloud Visibility",
-        "widgetText": "Related to visibility","isDisplay":true
+        "widgetText": "Related to visibility", "isChecked":true
       }
     ]
   },
@@ -22,15 +22,15 @@
     "widgets": [
       {
         "widgetName": "Threat Detection",
-        "widgetText": "Shows active threats","isDisplay":true
+        "widgetText": "Shows active threats", "isChecked":true
       },
       {
         "widgetName": "Incident Reports",
-        "widgetText": "Summarizes incidents","isDisplay":true
+        "widgetText": "Summarizes incidents", "isChecked":true
       },
       {
         "widgetName": "Compliance Status",
-        "widgetText": "Highlights compliance status","isDisplay":true
+        "widgetText": "Highlights compliance status", "isChecked":true
       }
     ]
   },
@@ -39,15 +39,15 @@
     "widgets": [
       {
         "widgetName": "User Growth",
-        "widgetText": "Tracks number of users","isDisplay":true
+        "widgetText": "Tracks number of users", "isChecked":true
       },
       {
         "widgetName": "Traffic Sources",
-        "widgetText": "Shows where visitors come from","isDisplay":true
+        "widgetText": "Shows where visitors come from", "isChecked":true
       },
       {
         "widgetName": "Revenue Trends",
-        "widgetText": "Shows revenue growth","isDisplay":true
+        "widgetText": "Shows revenue growth", "isChecked":true
       }
     ]
   },
@@ -56,15 +56,15 @@
     "widgets": [
       {
         "widgetName": "Server Uptime",
-        "widgetText": "Tracks uptime and downtime","isDisplay":true
+        "widgetText": "Tracks uptime and downtime", "isChecked":true
       },
       {
         "widgetName": "Error Logs",
-        "widgetText": "Shows system errors","isDisplay":true
+        "widgetText": "Shows system errors", "isChecked":true
       },
       {
         "widgetName": "Performance Metrics",
-        "widgetText": "Tracks response times and load","isDisplay":true
+        "widgetText": "Tracks response times and load", "isChecked":true
       }
 
     ]
