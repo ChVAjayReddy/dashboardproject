@@ -19,30 +19,47 @@ const Body = () => {
   const [display, setdisplay] = useState(data);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [originalData, setoriginalData] = useState(data);
-   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [addCategory, setaddCategory] = useState(false);
+  console.log(data);
   function addWidget() {
     let tempCategory = originalData.filter(
       (category) => category.categoryName === form.categoryName
     );
-    console.log(tempCategory[0]);
-    let tempWidget = {};
-    tempWidget.widgetName = form.widgetName;
-    tempWidget.widgetText = form.widgetText;
-    tempCategory[0].widgets.push(tempWidget);
-    console.log(tempCategory);
-    let updatedCategory = tempCategory[0];
-    setoriginalData((prevoriginalData) =>
-      prevoriginalData.map((category) =>
-        category.categoryName === form.categoryName
-          ? { ...category, updatedCategory }
-          : category
-      )
-    );
+    if (tempCategory.length === 0) {
+      const newCategory = {
+        categoryName: form.categoryName,
+        widgets: [
+          {
+            widgetName: form.widgetName,
+            widgetText: form.widgetText,
+          },
+        ],
+      };
+
+      let alldata = originalData;
+      alldata.push(newCategory);
+      setoriginalData(alldata);
+    } else {
+      let tempWidget = {};
+      tempWidget.widgetName = form.widgetName;
+      tempWidget.widgetText = form.widgetText;
+      tempCategory[0].widgets.push(tempWidget);
+      let updatedCategory = tempCategory[0];
+
+      setoriginalData((prevoriginalData) =>
+        prevoriginalData.map((category) =>
+          category.categoryName === form.categoryName
+            ? { ...category, updatedCategory }
+            : category
+        )
+      );
+    }
+
     setdisplay(originalData);
     setform({
       ...form,
-      categoryName: "Select Category",
+      categoryName: "",
       widgetName: "",
       widgetText: "",
     });
@@ -134,7 +151,17 @@ const Body = () => {
             >
               Add Widget +
             </button>
-                <button onClick={() => setIsSidebarOpen(true)}>Manage Widgets</button>
+            <button onClick={() => setIsSidebarOpen(true)}>
+              Manage Widgets
+            </button>
+            <button
+              onClick={() => {
+                setModalIsOpen(true);
+                setaddCategory(true);
+              }}
+            >
+              Add Category +
+            </button>
 
             <button>
               <SlRefresh />
@@ -157,9 +184,9 @@ const Body = () => {
           ))}
         </div>
       </div>
-      <Sidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
         originalData={originalData}
         setdisplay={setdisplay}
       />
@@ -182,6 +209,7 @@ const Body = () => {
             }}
           />
         </div>
+        {addCategory ? "Add Category" : "Add Widget"}
         <div
           id="modalBody"
           style={{
@@ -191,17 +219,36 @@ const Body = () => {
             alignContent: "center",
           }}
         >
-          <label htmlFor="formCategory">Select Category:</label>
-          <select
-            id="formCategory"
-            value={form.categoryName}
-            onChange={(e) => setform({ ...form, categoryName: e.target.value })}
-          >
-            <option>Select Category</option>
-            {display.map((category, index) => (
-              <option key={index}>{category.categoryName}</option>
-            ))}
-          </select>
+          {addCategory ? (
+            <div>
+              <label htmlFor="CategoryName">Category Name :</label>
+              <input
+                type="text"
+                id="CategoryName"
+                value={form.categoryName}
+                onChange={(e) =>
+                  setform({ ...form, categoryName: e.target.value })
+                }
+              ></input>{" "}
+            </div>
+          ) : (
+            <div>
+              <label htmlFor="formCategory">Select Category:</label>
+              <select
+                id="formCategory"
+                value={form.categoryName}
+                onChange={(e) =>
+                  setform({ ...form, categoryName: e.target.value })
+                }
+              >
+                <option>Select Category</option>
+                {display.map((category, index) => (
+                  <option key={index}>{category.categoryName}</option>
+                ))}
+              </select>
+            </div>
+          )}
+
           <label htmlFor="formWidget">Widget Name :</label>
           <input
             type="text"
