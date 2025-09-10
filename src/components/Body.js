@@ -103,180 +103,173 @@ const Body = () => {
   const formIsValid =
     form.widgetName !== "" && form.categoryName !== "Select Category";
   return (
-    <div id="main">
-      <div id="header" style={{ display: "flex", flexDirection: "row" }}>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <p>
-            Home {">"} <strong>Dashboard V2</strong>{" "}
-          </p>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-end",
-            width: "85%",
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-          <input
-            type="text"
-            style={{ width: "40%" }}
-            placeholder="Search Anything"
-            value={searchInput}
-            onChange={(e) => search(e)}
-          ></input>
-          <LuBellRing />
-          <p>
-            <MdAccountCircle /> Admin
-          </p>
-        </div>
-      </div>
-
-      <div id="dashboard">
-        <div id="dashboardHeading">
+    
+      <div id="main">        
+        <div id="header" >
           <div>
-            <p>
-              <strong>CNAPP Dashboard</strong>
+            <p style={{color:"blue"}}>
+              Home {">"} <strong>Dashboard V2</strong>{" "}
             </p>
           </div>
-
-          <div id="dashboardIcons">
-            <button
-              onClick={() => {
-                setModalIsOpen(true);
-              }}
-            >
-              Add Widget +
-            </button>
-            <button onClick={() => setIsSidebarOpen(true)}>
-              Manage Widgets
-            </button>
-            <button
-              onClick={() => {
-                setModalIsOpen(true);
-                setaddCategory(true);
-              }}
-            >
-              Add Category +
-            </button>
-            <button>
-              <SlRefresh />
-            </button>
-            <button>
-              <BsThreeDotsVertical />
-            </button>
+          <div id="searchbox"           
+          > <input id="searchinput"
+              type="text"
+             placeholder="Search Anything"
+              value={searchInput}
+              onChange={(e) => search(e)}
+            ></input>
+            <LuBellRing />
+            <MdAccountCircle /> 
+            <p>
+            Admin
+            </p>
           </div>
         </div>
-        <div id="dashboardLayout">
-          {display.map((category, index) => (
-            <DashboardLayout
-              category={category}
-              key={index}
-              deleteWidget={deleteWidget}
-              form={form}
-              setform={setform}
-              setModalIsOpen={setModalIsOpen}
-            />
-          ))}
-        </div>
-      </div>
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-        originalData={originalData}
-        setdisplay={setdisplay}
-      />
-      <Modal isOpen={modalIsOpen}>
-        <div>
-          {" "}
-          <RxCross2
-            id="close-btn"
-            onClick={() => {
-              setModalIsOpen(false);
-              setaddCategory(false);
-              setform({
-                    ...form,
-                    categoryName:"",
-                  });
-            }}
-            style={{
-              width: "20px",
-              height: "20px",
-              color: "red",
-              cursor: "pointer",
-              border: "1px solid red",
-              borderRadius: "10px",
-            }}
-          />
-        </div>
-        {addCategory ? "Add Category" : "Add Widget"}
-        <div
-          id="modalBody"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            textAlign: "center",
-            alignContent: "center",
-          }}
-        >
-          {addCategory ? (
-            <div>
-              <label htmlFor="CategoryName">Category Name :</label>
-              <input
-                type="text"
-                id="CategoryName"
-                value={form.categoryName}
-                onChange={(e) =>
-                  setform({ ...form, categoryName: e.target.value })
-                }
-              ></input>{" "}
+
+        <div id="dashboard">
+          <div id="dashboardHeading">
+            <div id="dashboardname">
+              <p>
+                <strong>CNAPP Dashboard</strong>
+              </p>
             </div>
-          ) : (
-            <div>
-              <label htmlFor="formCategory">Select Category:</label>
-              <select
-                id="formCategory"
-                value={form.categoryName}
-                onChange={(e) =>
-                  setform({ ...form, categoryName: e.target.value })
-                }
+
+            <div id="dashboardIcons">
+              <button
+                onClick={() => {
+                  setModalIsOpen(true);
+                }}
               >
-                <option>Select Category</option>
-                {display.map((category, index) => (
-                  <option key={index}>{category.categoryName}</option>
-                ))}
-              </select>
+                Add Widget +
+              </button>
+              <button onClick={() => setIsSidebarOpen(true)}>
+                Manage Widgets
+              </button>
+              <button
+                onClick={() => {
+                  setModalIsOpen(true);
+                  setaddCategory(true);
+                }}
+              >
+                Add Category +
+              </button>
+              <button>
+                <SlRefresh />
+              </button>
+              <button>
+                <BsThreeDotsVertical />
+              </button>
             </div>
-          )}
-          <label htmlFor="formWidget">Widget Name :</label>
-          <input
-            type="text"
-            id="formWidget"
-            value={form.widgetName}
-            onChange={(e) => setform({ ...form, widgetName: e.target.value })}
-          ></input>
-          <label htmlFor="formWidgetText">Widget text :</label>
-          <input
-            type="text"
-            id="formWidgetText"
-            value={form.widgetText}
-            onChange={(e) => setform({ ...form, widgetText: e.target.value })}
-          ></input>
-          <button
-            disabled={!formIsValid}
-            onClick={() => {
-              addWidget();
-              setModalIsOpen(false);
-              setaddCategory(false);
+          </div>
+          <div id="dashboardLayout">
+            {display.map((category, index) => (
+              <DashboardLayout
+                category={category}
+                key={index}
+                deleteWidget={deleteWidget}
+                form={form}
+                setform={setform}
+                setModalIsOpen={setModalIsOpen}
+              />
+            ))}
+          </div>
+        </div>
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+          originalData={originalData}
+          setdisplay={setdisplay}
+        />
+        <Modal isOpen={modalIsOpen}>
+          <div>
+            {" "}
+            <RxCross2
+              id="close-btn"
+              onClick={() => {
+                setModalIsOpen(false);
+                setaddCategory(false);
+                setform({
+                  ...form,
+                  categoryName: "",
+                });
+              }}
+              style={{
+                width: "20px",
+                height: "20px",
+                color: "red",
+                cursor: "pointer",
+                border: "1px solid red",
+                borderRadius: "10px",
+              }}
+            />
+          </div>
+          {addCategory ? "Add Category" : "Add Widget"}
+          <div
+            id="modalBody"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              textAlign: "center",
+              alignContent: "center",
             }}
           >
-            Add Widget
-          </button>
-        </div>
-      </Modal>
-    </div>
+            {addCategory ? (
+              <div>
+                <label htmlFor="CategoryName">Category Name :</label>
+                <input
+                  type="text"
+                  id="CategoryName"
+                  value={form.categoryName}
+                  onChange={(e) =>
+                    setform({ ...form, categoryName: e.target.value })
+                  }
+                ></input>{" "}
+              </div>
+            ) : (
+              <div>
+                <label htmlFor="formCategory">Select Category:</label>
+                <select
+                  id="formCategory"
+                  value={form.categoryName}
+                  onChange={(e) =>
+                    setform({ ...form, categoryName: e.target.value })
+                  }
+                >
+                  <option>Select Category</option>
+                  {display.map((category, index) => (
+                    <option key={index}>{category.categoryName}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+            <label htmlFor="formWidget">Widget Name :</label>
+            <input
+              type="text"
+              id="formWidget"
+              value={form.widgetName}
+              onChange={(e) => setform({ ...form, widgetName: e.target.value })}
+            ></input>
+            <label htmlFor="formWidgetText">Widget text :</label>
+            <input
+              type="text"
+              id="formWidgetText"
+              value={form.widgetText}
+              onChange={(e) => setform({ ...form, widgetText: e.target.value })}
+            ></input>
+            <button
+              disabled={!formIsValid}
+              onClick={() => {
+                addWidget();
+                setModalIsOpen(false);
+                setaddCategory(false);
+              }}
+            >
+              Add Widget
+            </button>
+          </div>
+        </Modal>
+      </div>
+    
   );
 };
 export default Body;

@@ -4,38 +4,28 @@ const DashboardLayout = (props) => {
     props;
 
   return category.widgets.length !== 0 ? (
-    <div>
-      <div key={index}>
-        <div>
+         <div key={index} id="layoutbox">
+     
           <p>
             <strong>{category.categoryName}</strong>
           </p>
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "33%  33% 33%",
-              gap: 12,
-            }}
+            id="widgetbox"
           >
          
             {category.widgets.map((widget, index) => (
               widget.isChecked===true ? <div className="widget" key={index}>
-                <button
+                <button 
                   className="removebtn"
                   onClick={() => deleteWidget(category.categoryName, index)}
                 >
-                  <RxCross2 color="red" />
+                  <RxCross2 color="white" />
                 </button>{" "}
-                <p
-                  style={{
-                    margin: "0px",
-                    fontSize: "14px",
-                    maxHeight: "auto",
-                  }}
-                >
+                <p className="widgetname"
+                                  >
                   {widget.widgetName}
                 </p>
-                <p>
+                <p className="widgettext">
                   {widget.widgetText === ""
                     ? "No Data Available"
                     : widget.widgetText}
@@ -46,10 +36,10 @@ const DashboardLayout = (props) => {
             <div
               id="shimmer"
               style={{
-                height: "80px",
-                borderRadius: "20px",
+                height: "100px",
+                borderRadius: "10px",
                 padding: "10px",
-                backgroundColor: "grey",
+                backgroundColor: "lightgrey",
                 textAlign: "center",
                 justifyContent: "center",
                 justifyItems: "center",
@@ -76,9 +66,9 @@ const DashboardLayout = (props) => {
               </button>
             </div>
           </div>
-        </div>
+        
       </div>
-    </div>
+  
   ) : null;
 };
 export default DashboardLayout;
