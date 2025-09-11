@@ -10,10 +10,6 @@
       {
         "widgetName": "Cloud Account Risk Assessment",
         "widgetText": "Related to risk assessment", "isChecked":true
-      },
-      {
-        "widgetName": "Cloud Visibility",
-        "widgetText": "Related to visibility", "isChecked":true
       }
     ]
   },
@@ -27,10 +23,6 @@
       {
         "widgetName": "Incident Reports",
         "widgetText": "Summarizes incidents", "isChecked":true
-      },
-      {
-        "widgetName": "Compliance Status",
-        "widgetText": "Highlights compliance status", "isChecked":true
       }
     ]
   },
@@ -39,15 +31,11 @@
     "widgets": [
       {
         "widgetName": "User Growth",
-        "widgetText": "Tracks number of users", "isChecked":true
+        "widgetText": "", "isChecked":true
       },
       {
         "widgetName": "Traffic Sources",
         "widgetText": "Shows where visitors come from", "isChecked":true
-      },
-      {
-        "widgetName": "Revenue Trends",
-        "widgetText": "Shows revenue growth", "isChecked":true
       }
     ]
   },
@@ -61,10 +49,6 @@
       {
         "widgetName": "Error Logs",
         "widgetText": "Shows system errors", "isChecked":true
-      },
-      {
-        "widgetName": "Performance Metrics",
-        "widgetText": "Tracks response times and load", "isChecked":true
       }
 
     ]
