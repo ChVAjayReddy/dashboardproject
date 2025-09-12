@@ -254,6 +254,7 @@ code {
     
 }
 .widgettext {
+  font-size: 12px;
   text-align: justify;
   margin: 0;
   -webkit-box-orient: vertical;
