@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import data from "../utils/Data.json";
 import Modal from "react-modal";
 import Sidebar from "./Sidebar";
@@ -97,7 +97,7 @@ const Body = () => {
       .filter(Boolean);
     setdisplay(searchOutput);
   }
-  
+
   const formIsValid =
     form.widgetName !== "" && form.categoryName !== "Select Category";
   return (

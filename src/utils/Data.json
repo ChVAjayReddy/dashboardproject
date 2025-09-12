@@ -5,58 +5,58 @@
       {
         "widgetName": "Cloud Accounts",
         "widgetText": "Overview of all connected cloud accounts, including account status, ownership, and activity metrics.",
-        "isChecked":true
+        "isChecked": true
       },
       {
         "widgetName": "Cloud Account Risk Assessment",
-        "widgetText": "Risk evaluation of cloud accounts highlighting security posture, compliance gaps, and potential vulnerabilities.", "isChecked":true
+        "widgetText": "Risk evaluation of cloud accounts highlighting security posture, compliance gaps, and potential vulnerabilities.",
+        "isChecked": true
       }
     ]
   },
   {
-  "categoryName": "Security Insights",
-  "widgets": [
-    {
-      "widgetName": "Threat Detection",
-      "widgetText": "",
-      "isChecked": true
-    },
-    {
-      "widgetName": "Incident Reports",
-      "widgetText": "Summarizes recent security incidents and their resolutions.",
-      "isChecked": true
-    }
-  ]
-},
-{
-  "categoryName": "Analytics",
-  "widgets": [
-    {
-      "widgetName": "User Growth",
-      "widgetText": "Tracks new user sign-ups and overall growth trends.",
-      "isChecked": true
-    },
-    {
-      "widgetName": "Traffic Sources",
-      "widgetText": "Displays where visitors originate (e.g., search, social, direct).",
-      "isChecked": true
-    }
-  ]
-},
-{
-  "categoryName": "Monitoring",
-  "widgets": [
-    {
-      "widgetName": "Server Uptime",
-      "widgetText": "Monitors server availability, uptime percentage, and downtime events.",
-      "isChecked": true
-    },
-    {
-      "widgetName": "Error Logs",
-      "widgetText": "Provides a summary of recent errors and system failures.",
-      "isChecked": true
-    }
-  ]
-}
-  
+    "categoryName": "Security Insights",
+    "widgets": [
+      {
+        "widgetName": "Threat Detection",
+        "widgetText": "",
+        "isChecked": true
+      },
+      {
+        "widgetName": "Incident Reports",
+        "widgetText": "Summarizes recent security incidents and their resolutions.",
+        "isChecked": true
+      }
+    ]
+  },
+  {
+    "categoryName": "Analytics",
+    "widgets": [
+      {
+        "widgetName": "User Growth",
+        "widgetText": "Tracks new user sign-ups and overall growth trends.",
+        "isChecked": true
+      },
+      {
+        "widgetName": "Traffic Sources",
+        "widgetText": "Displays where visitors originate (e.g., search, social, direct).",
+        "isChecked": true
+      }
+    ]
+  },
+  {
+    "categoryName": "Monitoring",
+    "widgets": [
+      {
+        "widgetName": "Server Uptime",
+        "widgetText": "Monitors server availability, uptime percentage, and downtime events.",
+        "isChecked": true
+      },
+      {
+        "widgetName": "Error Logs",
+        "widgetText": "Provides a summary of recent errors and system failures.",
+        "isChecked": true
+      }
+    ]
+  }
 ]

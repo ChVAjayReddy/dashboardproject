@@ -7,7 +7,7 @@ const DashboardLayout = (props) => {
       <p>
         <strong>{category.categoryName}</strong>
       </p>
-      <div id="widgetbox" >
+      <div id="widgetbox">
         {category.widgets.map((widget, index) =>
           widget.isChecked === true ? (
             <div className="widget" key={index}>
@@ -19,18 +19,21 @@ const DashboardLayout = (props) => {
               </button>{" "}
               <p className="widgetname">{widget.widgetName}</p>
               <p className="widgettext">
-                {widget.widgetText === ""
-                  ? <div id="nodata" ><p id="graph">📈</p><p id="nodatatext">No data available</p></div>
-                  : widget.widgetText}
+                {widget.widgetText === "" ? (
+                  <div id="nodata">
+                    <p id="graph">📈</p>
+                    <p id="nodatatext">No data available</p>
+                  </div>
+                ) : (
+                  widget.widgetText
+                )}
               </p>
             </div>
           ) : null
         )}
-        <div
-          id="shimmer"
-          
-        >
-          <button id="shimmerbtn"
+        <div id="shimmer">
+          <button
+            id="shimmerbtn"
             onClick={() => {
               setModalIsOpen(true);
               setform({
@@ -38,7 +41,6 @@ const DashboardLayout = (props) => {
                 categoryName: category.categoryName,
               });
             }}
-            
           >
             + Add Widget
           </button>

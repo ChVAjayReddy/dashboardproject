@@ -1,5 +1,4 @@
 import Modal from "react-modal";
-import { useState } from "react";
 import { FaAsterisk } from "react-icons/fa";
 function ModalUI(props) {
   const {
@@ -13,33 +12,31 @@ function ModalUI(props) {
     addWidget,
     formIsValid,
   } = props;
-   
 
   return (
     <Modal
       isOpen={modalIsOpen}
       className="my-modal-content"
       overlayClassName="my-modal-overlay"
-    onRequestClose={() =>{ setModalIsOpen(false);
-                setaddCategory(false); setform({
-                  ...form,
-                  categoryName: "",
-                    widgetName: "",
-    widgetText: "",
-                });}} 
+      onRequestClose={() => {
+        setModalIsOpen(false);
+        setaddCategory(false);
+        setform({
+          ...form,
+          categoryName: "",
+          widgetName: "",
+          widgetText: "",
+        });
+      }}
       ariaHideApp={false}
     >
       <div id="modalbox">
         <div id="modalheading">
           {" "}
           {addCategory ? (
-            <p id="category">
-            Add Category
-            </p>
+            <p id="category">Add Category</p>
           ) : (
-            <p id="widget">
-        Add Widget
-            </p>
+            <p id="widget">Add Widget</p>
           )}
         </div>
 
@@ -47,7 +44,10 @@ function ModalUI(props) {
           {addCategory ? (
             <div>
               <label htmlFor="CategoryName">
-               Category Name <sup><FaAsterisk color="red" size={10}/></sup>
+                Category Name{" "}
+                <sup>
+                  <FaAsterisk color="red" size={10} />
+                </sup>
               </label>
               <br></br>
               <br></br>
@@ -64,7 +64,10 @@ function ModalUI(props) {
           ) : (
             <div>
               <label htmlFor="formCategory">
-               Select Category <sup><FaAsterisk color="red" size={10}/></sup>
+                Select Category{" "}
+                <sup>
+                  <FaAsterisk color="red" size={10} />
+                </sup>
               </label>
               <br></br>
               <br></br>
@@ -86,12 +89,14 @@ function ModalUI(props) {
                   <option key={index}>{category.categoryName}</option>
                 ))}
               </select>
-                
             </div>
           )}
-           <br></br>
+          <br></br>
           <label htmlFor="formWidget">
-          Widget Name <sup><FaAsterisk color="red" size={10}/></sup>
+            Widget Name{" "}
+            <sup>
+              <FaAsterisk color="red" size={10} />
+            </sup>
           </label>
           <br></br>
           <br></br>
@@ -103,10 +108,8 @@ function ModalUI(props) {
             onChange={(e) => setform({ ...form, widgetName: e.target.value })}
           ></input>
           <br></br>
- <br></br>
-          <label htmlFor="formWidgetText">
-         Widget Text :
-          </label>
+          <br></br>
+          <label htmlFor="formWidgetText">Widget Text :</label>
           <br></br>
           <br></br>
 
@@ -120,21 +123,36 @@ function ModalUI(props) {
           <br></br>
           <br></br>
           <div id="modalbuttons">
-            <button style={{backgroundColor:"transparent",border:"1px solid rgb(54, 54, 149)",cursor:"pointer",padding:"10px",borderRadius:"5px" ,color:"rgb(54, 54, 149)"}}
+            <button
+              style={{
+                backgroundColor: "transparent",
+                border: "1px solid rgb(54, 54, 149)",
+                cursor: "pointer",
+                padding: "10px",
+                borderRadius: "5px",
+                color: "rgb(54, 54, 149)",
+              }}
               onClick={() => {
                 setModalIsOpen(false);
                 setaddCategory(false);
                 setform({
                   ...form,
                   categoryName: "",
-                    widgetName: "",
-    widgetText: "",
+                  widgetName: "",
+                  widgetText: "",
                 });
               }}
             >
               Cancel{" "}
             </button>
-            <button style={{backgroundColor:!formIsValid?"gray":"rgb(54, 54, 149)", cursor:"pointer",padding:"10px",borderRadius:"5px" ,color:"white"}}
+            <button
+              style={{
+                backgroundColor: !formIsValid ? "gray" : "rgb(54, 54, 149)",
+                cursor: "pointer",
+                padding: "10px",
+                borderRadius: "5px",
+                color: "white",
+              }}
               disabled={!formIsValid}
               onClick={() => {
                 addWidget();
@@ -142,15 +160,7 @@ function ModalUI(props) {
                 setaddCategory(false);
               }}
             >
-              {addCategory ? (
-                
-                "Add Category"
-                
-              ) : (
-                
-                 "Add Widget"
-              
-              )}
+              {addCategory ? "Add Category" : "Add Widget"}
             </button>
           </div>
         </div>
