@@ -19,7 +19,7 @@ const{searchInput,search}=props;
             onChange={(e) => search(e)}
           ></input>
           <LuBellRing />
-           <p> <MdAccountCircle />Admin</p>
+           <p style={{display:"flex",alignItems:"center"}}> <MdAccountCircle />Admin</p>
         </div>
       </div>
     )

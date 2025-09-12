@@ -1,7 +1,7 @@
 import { SlRefresh } from "react-icons/sl";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaClock } from "react-icons/fa";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa6";
 function DashboardHeader({setIsSidebarOpen,setModalIsOpen,setaddCategory}){
     return(
         <div id="dashboardHeading">
@@ -31,13 +31,13 @@ function DashboardHeader({setIsSidebarOpen,setModalIsOpen,setaddCategory}){
               Add Category +
             </button>
             <button>
-              <SlRefresh />
+              <SlRefresh style={{verticalAlign:"middle"}}/>
             </button>
             <button>
-              <BsThreeDotsVertical />
+              <BsThreeDotsVertical style={{verticalAlign:"middle"}}/>
             </button>
-            <button>
-                <FaClock /> ┊ last 2 days {"   "}<strong>🇻</strong>
+            <button style={{display:"flex",alignItems:"center"}}>
+                <FaClock /> ┊ last 2 days &nbsp;&nbsp; <FaChevronDown />
             </button>
           </div>
         </div>

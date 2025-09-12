@@ -1,4 +1,3 @@
-import { RxCross2 } from "react-icons/rx";
 const DashboardLayout = (props) => {
   const { category, index, deleteWidget, form, setform, setModalIsOpen } =
     props;
@@ -21,7 +20,7 @@ const DashboardLayout = (props) => {
               <p className="widgetname">{widget.widgetName}</p>
               <p className="widgettext">
                 {widget.widgetText === ""
-                  ? <div id="nodata" ><p id="graph">📈</p><p id="nodatatext"> No data Available</p></div>
+                  ? <div id="nodata" ><p id="graph">📈</p><p id="nodatatext">No data available</p></div>
                   : widget.widgetText}
               </p>
             </div>
