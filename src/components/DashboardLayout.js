@@ -18,7 +18,7 @@ const DashboardLayout = (props) => {
                 <strong>X</strong>
               </button>{" "}
               <p className="widgetname">{widget.widgetName}</p>
-              <p className="widgettext">
+              <div className="widgettext">
                 {widget.widgetText === "" ? (
                   <div id="nodata">
                     <p id="graph">📈</p>
@@ -27,7 +27,7 @@ const DashboardLayout = (props) => {
                 ) : (
                   widget.widgetText
                 )}
-              </p>
+              </div>
             </div>
           ) : null
         )}
