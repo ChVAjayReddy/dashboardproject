@@ -97,6 +97,9 @@ const Body = () => {
       .filter(Boolean);
     setdisplay(searchOutput);
   }
+ 
+  
+ 
 
   const formIsValid =
     form.widgetName !== "" && form.categoryName !== "Select Category";
