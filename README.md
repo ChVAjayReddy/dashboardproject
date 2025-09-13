@@ -76,4 +76,4 @@ npm run build
 
 - Mobile: 2 widgets per row
 
-Text inside widgets automatically trims with text-overflow: ellipsis.
+* Text inside widgets automatically trims with text-overflow: ellipsis.
