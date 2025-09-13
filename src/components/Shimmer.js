@@ -7,6 +7,7 @@ const Shimmer = () => {
     <div>
       <div id="shimmerui">
         <ShimmerTitle
+          mode="dark"
           line={1}
           gap={10}
           className="shimmeruititle"
@@ -15,6 +16,7 @@ const Shimmer = () => {
         <div id="shimmeruiwidgetbox">
           <div id="Shimmeruiwidget">
             <ShimmerTitle
+              mode="dark"
               line={1}
               gap={10}
               className="shimmeruiwidgettitle"
@@ -29,6 +31,7 @@ const Shimmer = () => {
           </div>
           <div id="Shimmeruiwidget">
             <ShimmerTitle
+              mode="dark"
               line={1}
               gap={10}
               className="shimmeruiwidgettitle"
@@ -43,6 +46,7 @@ const Shimmer = () => {
           </div>
           <div id="Shimmeruiwidget">
             <ShimmerTitle
+              mode="dark"
               line={1}
               gap={10}
               className="shimmeruiwidgettitle"
