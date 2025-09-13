@@ -1,7 +1,15 @@
 const DashboardLayout = (props) => {
-  const { category, index, deleteWidget, form, setform, setModalIsOpen } =
-    props;
+  const {
+    category,
+    index,
+    deleteWidget,
+    form,
+    setform,
+    setModalIsOpen,
+    random,
+  } = props;
 
+  console.log(random);
   return category.widgets.length !== 0 ? (
     <div key={index} id="categorybox">
       <p>
@@ -24,6 +32,9 @@ const DashboardLayout = (props) => {
                     <p id="graph">📈</p>
                     <p id="nodatatext">No data available</p>
                   </div>
+                ) : widget.widgetName === "Incident Reports" ||
+                  widget.widgetName === "User Growth" ? (
+                  random[index * Math.floor(Math.random() * (7 - 1) + 1)]
                 ) : (
                   widget.widgetText
                 )}

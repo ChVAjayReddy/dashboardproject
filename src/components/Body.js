@@ -16,11 +16,13 @@ const Body = () => {
     isChecked: true,
   });
   const [searchInput, setsearchInput] = useState("");
-  const [display, setdisplay] = useState([]);
+  const [display, setdisplay] = useState(data);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [originalData, setoriginalData] = useState(data);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [addCategory, setaddCategory] = useState(false);
+  const [random, setrandom] = useState([]);
+  const [loading, setloading] = useState(false);
 
   function addWidget() {
     let tempCategory = originalData.filter(
@@ -99,10 +101,23 @@ const Body = () => {
     setdisplay(searchOutput);
   }
   useEffect(() => {
-    setTimeout(() => {
-      setdisplay(data);
-    }, 500);
+    fetchdata();
   }, []);
+  const fetchdata = async () => {
+    const data = await fetch("https://dummyjson.com/quotes");
+    const json = await data.json();
+    const randomarray = json.quotes;
+    if (randomarray.length > 0) {
+      for (let i = 0; i < 8; i++) {
+        let j = Math.floor(Math.random() * (27 - 1) + 1);
+        let randomtext = randomarray[j].quote;
+        setrandom((prevrandom) => [...prevrandom, randomtext]);
+      }
+      setloading(true);
+    } else {
+      setloading(true);
+    }
+  };
 
   const formIsValid =
     form.widgetName !== "" && form.categoryName !== "Select Category";
@@ -117,8 +132,10 @@ const Body = () => {
         />
 
         <div id="dashboardLayout">
-          {display.length === 0 ? (
+          {!loading ? (
             <ShimmerLayout />
+          ) : display.length === 0 ? (
+            <p id="noresult">Sorry, No results found. Search again.</p>
           ) : (
             display.map((category, index) => (
               <DashboardLayout
@@ -128,6 +145,7 @@ const Body = () => {
                 form={form}
                 setform={setform}
                 setModalIsOpen={setModalIsOpen}
+                random={random}
               />
             ))
           )}

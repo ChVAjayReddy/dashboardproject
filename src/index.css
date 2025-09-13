@@ -265,11 +265,6 @@ code {
   line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-@media (max-width: 768px) {
-  .widgetname {
-    height: 22%;
-  }
-}
 .widgettext {
   font-size: 12px;
   text-align: justify;
@@ -400,4 +395,9 @@ code {
 }
 .shimmeruiwidgettext {
   margin: 0;
+}
+#noresult{
+  padding: 100px;
+  color: red;
+  text-align: center;
 }
