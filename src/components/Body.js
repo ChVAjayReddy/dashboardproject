@@ -6,6 +6,7 @@ import DashboardLayout from "./DashboardLayout";
 import Header from "./Header";
 import ModalUI from "./ModalUI";
 import DashboardHeader from "./DashboardHeader";
+import ShimmerLayout from "./ShimmerLayout";
 Modal.setAppElement("#root");
 const Body = () => {
   const [form, setform] = useState({
@@ -15,7 +16,7 @@ const Body = () => {
     isChecked: true,
   });
   const [searchInput, setsearchInput] = useState("");
-  const [display, setdisplay] = useState(data);
+  const [display, setdisplay] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [originalData, setoriginalData] = useState(data);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -97,9 +98,11 @@ const Body = () => {
       .filter(Boolean);
     setdisplay(searchOutput);
   }
- 
-  
- 
+  useEffect(() => {
+    setTimeout(() => {
+      setdisplay(data);
+    }, 500);
+  }, []);
 
   const formIsValid =
     form.widgetName !== "" && form.categoryName !== "Select Category";
@@ -112,17 +115,22 @@ const Body = () => {
           setIsSidebarOpen={setIsSidebarOpen}
           setaddCategory={setaddCategory}
         />
+
         <div id="dashboardLayout">
-          {display.map((category, index) => (
-            <DashboardLayout
-              category={category}
-              key={index}
-              deleteWidget={deleteWidget}
-              form={form}
-              setform={setform}
-              setModalIsOpen={setModalIsOpen}
-            />
-          ))}
+          {display.length === 0 ? (
+            <ShimmerLayout />
+          ) : (
+            display.map((category, index) => (
+              <DashboardLayout
+                category={category}
+                key={index}
+                deleteWidget={deleteWidget}
+                form={form}
+                setform={setform}
+                setModalIsOpen={setModalIsOpen}
+              />
+            ))
+          )}
         </div>
       </div>
       <Sidebar
