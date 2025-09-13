@@ -76,6 +76,11 @@ code {
   display: flex;
   flex-wrap: wrap;
   padding-top: 1%;
+  position: sticky;
+  top: 0;
+  background-color: #e8f0f7;
+  z-index: 10;
+  padding-bottom: 5px;
 }
 #dashboardIcons {
   flex-grow: 1;
@@ -170,7 +175,7 @@ code {
   top: 0;
   width: 50%;
 
-  z-index: 3;
+  z-index: 999;
   background: white;
   transition: right 0.3s ease-in-out;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
@@ -185,7 +190,7 @@ code {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: 50;
 }
 @media (max-width: 768px) {
   .sidebar {
@@ -194,7 +199,7 @@ code {
     top: 0;
     width: 70%;
     height: 100%;
-    z-index: 3;
+    z-index: 999;
     background: white;
     transition: right 0.3s ease-in-out;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
@@ -302,7 +307,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
+  z-index: 50;
   padding: 16px;
 }
 
@@ -315,7 +320,7 @@ code {
   max-height: 90vh;
   overflow-y: auto;
   box-sizing: border-box;
-  z-index: 3;
+  z-index: 999;
   font-family: "Inter", sans-serif;
   background: white;
   font-family: "Inter", sans-serif;
@@ -329,7 +334,7 @@ code {
     max-height: 95vh;
     border-radius: 6px;
     margin: 0;
-    z-index: 3;
+    z-index: 999;
     padding: 0;
   }
 }
