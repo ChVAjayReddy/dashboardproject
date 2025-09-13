@@ -9,7 +9,7 @@ const DashboardLayout = (props) => {
     random,
   } = props;
 
-  console.log(random);
+  
   return category.widgets.length !== 0 ? (
     <div key={index} id="categorybox">
       <p>
