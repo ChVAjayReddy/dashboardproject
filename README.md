@@ -4,35 +4,36 @@ A responsive dashboard built using React that displays dynamic widgets.Each widg
 
 ✨Features:
 
-Responsive Layout (Grid system with media queries for mobile & desktop)
+ * Responsive Layout (Grid system with media queries for mobile & desktop)
 
- Widgets with title and text
+ * Widgets with title and text
 
- Shimmer UI loading effect
+ * Shimmer UI loading effect
 
- Sidebar for selecting/deselecting widgets
+ * Sidebar for selecting/deselecting widgets
 
- Modal for adding new category and new widget
+ * Modal for adding new category and new widget
 
- Dynamic content – some widgets display random quotes
+ * Dynamic content – some widgets display random quotes
 
- Hover effects with shadow and remove button
+ * Hover effects with shadow and remove button
 
  🚀Tech Stack:
 
- React
+ * React
 
- React Icons
+ * React Icons
 
- React Modal
+ * React Modal
 
- CSS (Flexbox, Grid, Media Queries)
+ * CSS (Flexbox, Grid, Media Queries)
 
 ⚙️ Installation:
 
 1.Clone the repo: 
 
 git clone https://github.com/chvajayreddy/dashboardproject.git
+
 cd dashboardproject
 
 2.Install dependencies:
@@ -51,9 +52,9 @@ npm run build
 
 📱 Responsive Design:
 
-Desktop: 3 widgets per row
+* Desktop: 3 widgets per row
 
-Mobile: 2 widgets per row
+* Mobile: 2 widgets per row
 
 Text inside widgets automatically trims with text-overflow: ellipsis.
 
