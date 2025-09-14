@@ -44,7 +44,7 @@ const DashboardLayout = (props) => {
         )}
         <div id="shimmer">
           <button
-            id="shimmerbtn"
+            id="shimmerbtn" style={{cursor:"pointer"}}
             onClick={() => {
               setModalIsOpen(true);
               setform({

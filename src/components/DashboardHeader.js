@@ -15,26 +15,26 @@ function DashboardHeader({ setIsSidebarOpen, setModalIsOpen, setaddCategory }) {
         <button
           onClick={() => {
             setModalIsOpen(true);
-          }}
+          }} style={{cursor:"pointer"}}
         >
           Add Widget +
         </button>
-        <button onClick={() => setIsSidebarOpen(true)}>Manage Widgets</button>
+        <button onClick={() => setIsSidebarOpen(true)} style={{cursor:"pointer"}}>Manage Widgets</button>
         <button
           onClick={() => {
             setModalIsOpen(true);
             setaddCategory(true);
-          }}
+          }} style={{cursor:"pointer"}}
         >
           Add Category +
         </button>
-        <button>
+        <button style={{cursor:"pointer"}}> 
           <SlRefresh style={{ verticalAlign: "middle" }} />
         </button>
-        <button>
+        <button style={{cursor:"pointer"}}>
           <BsThreeDotsVertical style={{ verticalAlign: "middle" }} />
         </button>
-        <button style={{ display: "flex", alignItems: "center" }}>
+        <button style={{ display: "flex", alignItems: "center" ,cursor:"pointer"}}>
           <FaClock /> ┊ last 2 days &nbsp;&nbsp; <FaChevronDown />
         </button>
       </div>
