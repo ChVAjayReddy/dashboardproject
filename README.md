@@ -4,7 +4,7 @@ A responsive dashboard built using React that displays dynamic widgets.Each widg
 
 🚀Github Repository: https://github.com/ChVAjayReddy/dashboardproject
 
-🚀 Live Demo: https://chvajayreddy.github.io/dashboardproject/
+🚀 Live Demo: https://dashboardproject-blue.vercel.app/
 
 ✨Features:
 
